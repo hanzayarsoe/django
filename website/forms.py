@@ -1,6 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
+from .models import Record
+
+
 
 class SignUpForm(UserCreationForm):
 	username = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'User Name'}))
@@ -12,3 +15,13 @@ class SignUpForm(UserCreationForm):
 		model = User
 		fields = ('username','email', 'password1', 'password2')
 
+class AddRecordForm(forms.ModelForm):
+	customer_name = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Customer Name'}))
+	customer_age = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Age'}))
+	customer_address = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Address'}))
+	customer_phone = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Phone'}))
+	customer_email = forms.EmailField(label="",required=True, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email'}))
+	class Meta:
+		model = Record
+		fields = ('customer_name','customer_age','customer_address','customer_phone','customer_email')
+		exclude = ('user',)

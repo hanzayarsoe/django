@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Customer Details</h1>
+<div class="card" style="width: 18rem;">
+    <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-rainbow-sunglasses_23-2149436181.jpg?w=740&t=st=1700124699~exp=1700125299~hmac=eac4a829e93504109736114b5e7d0081b74f78aba4981a8ac3c199e997c83e87" class="card-img-top" alt="...">
+    <div class="card-body">
+       
+      <h5 class="card-title"><b>Name:   </b>{{rec.customer_name}}</h5>
+      <p class="card-text">  <b>Age:    </b>{{rec.customer_age}}</p>
+      <p class="card-text">  <b>Address:</b>{{rec.customer_address}}</p>
+      <p class="card-text">  <b>Phone:  </b>{{rec.customer_phone}}</p>
+      <p class="card-text">  <b>Email:  </b>{{rec.customer_email}}</p>
+      <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+      <a href="{% url 'delete_record' rec.id %}" class="btn btn-danger">Delete</a> 
+      <a href="{% url 'edit_record' rec.id %}" class="btn btn-secondary">Edit</a>
+    </div>
+  </div>
+
+{% endblock %}

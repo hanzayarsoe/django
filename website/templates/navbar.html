@@ -7,6 +7,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         {% if user.is_authenticated %}
         <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="{% url 'add_record'%}">Add Records</a>
+        </div>
+        <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{% url 'logout'%}">Logout</a>
         </div>
         {%else%}
